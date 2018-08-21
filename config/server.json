@@ -1,0 +1,18 @@
+{
+    "server": [{
+        "baseURL": "http:\/\/api.test.com",
+        "authKey": "nslnslnslnsl"
+    }],
+    "sf": {
+        "0": {
+            "tty": "\/dev\/ttyUSB[]",
+            "port": "9000",
+            "borderate": "115200"
+        },
+        "1": {
+            "tty": "\/dev\/ttyUSB[]",
+            "port": "9090",
+            "borderate": "115200"
+        }
+    }
+}
