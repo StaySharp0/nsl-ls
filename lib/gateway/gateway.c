@@ -52,6 +52,7 @@ void free_gateway() {
  *  - config(3):
  *  - exit(4): exit manager & worker process
  *  - help(...):
+ *  - test(...):
  */
 
 const char* cmd_arg[] = {
@@ -110,9 +111,11 @@ void init_gateway(int cmd_status, int argc, char *argv[]){
         case 5:
             debugMsg(self, "Fn: help\n");
             fn_help();
+			break;
         default:
-            debugMsg(self, "Fn: help\n");
-            fn_help();
+            debugMsg(self, "Fn: test\n");
+
+            
             break;
     }
 

@@ -17,14 +17,6 @@ int init_config_sensor_list(CONFIG* self) {
     
         // create new json ojbect
 		self->sensor_list               = json_object_new_object();
-
-        json_object *sensor_count       = json_object_new_int(0);
-        json_object *sensor_list        = json_object_new_object();
-        json_object *sid_mapping_list   = json_object_new_object();
-
-        json_object_object_add(self->sensor_list, "sensor_count",        sensor_count);
-        json_object_object_add(self->sensor_list, "sensor_list",         sensor_list);
-        json_object_object_add(self->sensor_list, "sid_mapping_list",    sid_mapping_list);
         
         // write file
         json_object_to_file(path, self->sensor_list);

@@ -29,23 +29,14 @@
 sensor_list.json
 ./
 {
-    sensor_count: 0,
-    sensor_list: 
-    {
-        id(MAC) : 
-        {
-            sfid: 'sf id',
-            dbid: 'db id',
-            name: 'default',
-            type: 'voltage',
-            interval: '30s',
-        }, 
-        ...
-    },
-    sid_mapping_list: 
-    {
-        'dbid' : 'id(MAC)',
-        '''
+    struct route/NODE { ptr },
+    int { child_no },
+    int { total_no },
+    child : {
+        struct route/NODE { ptr } 
+        int child_no,
+        int total_no,
+        child : { ... },
     }
 }
 */

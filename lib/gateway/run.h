@@ -22,6 +22,7 @@
 #include "type.h"
 #include "util.h"
 #include "config.h"
+#include "model.h"
 
 #define SF_PATH "../sf"
 

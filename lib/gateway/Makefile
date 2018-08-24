@@ -121,7 +121,8 @@ LTLIBRARIES = $(lib_LTLIBRARIES)
 libGateway_la_DEPENDENCIES =
 am_libGateway_la_OBJECTS = libGateway_la-gateway.lo \
 	libGateway_la-config.lo libGateway_la-run.lo \
-	libGateway_la-model.lo libGateway_la-util.lo
+	libGateway_la-model.lo libGateway_la-util.lo \
+	libGateway_la-packet.lo libGateway_la-route.lo
 libGateway_la_OBJECTS = $(am_libGateway_la_OBJECTS)
 AM_V_lt = $(am__v_lt_$(V))
 am__v_lt_ = $(am__v_lt_$(AM_DEFAULT_VERBOSITY))
@@ -320,7 +321,9 @@ libGateway_la_SOURCES = gateway.h gateway.c \
                         run.h run.c \
                         model.h model.c \
                         type.h \
-                        util.h util.c
+                        util.h util.c \
+                        packet.c packet.h \
+                        route.c route.h 
 
 libGateway_la_CFLAGS = -I$(JSON_C_DIR)/include/json-c 
 libGateway_la_LIBADD = -L$(JSON_C_DIR)/lib -ljson-c -lsqlite3
@@ -406,6 +409,8 @@ distclean-compile:
 include ./$(DEPDIR)/libGateway_la-config.Plo
 include ./$(DEPDIR)/libGateway_la-gateway.Plo
 include ./$(DEPDIR)/libGateway_la-model.Plo
+include ./$(DEPDIR)/libGateway_la-packet.Plo
+include ./$(DEPDIR)/libGateway_la-route.Plo
 include ./$(DEPDIR)/libGateway_la-run.Plo
 include ./$(DEPDIR)/libGateway_la-util.Plo
 
@@ -464,6 +469,20 @@ libGateway_la-util.lo: util.c
 #	$(AM_V_CC)source='util.c' object='libGateway_la-util.lo' libtool=yes \
 #	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
 #	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libGateway_la_CFLAGS) $(CFLAGS) -c -o libGateway_la-util.lo `test -f 'util.c' || echo '$(srcdir)/'`util.c
+
+libGateway_la-packet.lo: packet.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libGateway_la_CFLAGS) $(CFLAGS) -MT libGateway_la-packet.lo -MD -MP -MF $(DEPDIR)/libGateway_la-packet.Tpo -c -o libGateway_la-packet.lo `test -f 'packet.c' || echo '$(srcdir)/'`packet.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libGateway_la-packet.Tpo $(DEPDIR)/libGateway_la-packet.Plo
+#	$(AM_V_CC)source='packet.c' object='libGateway_la-packet.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libGateway_la_CFLAGS) $(CFLAGS) -c -o libGateway_la-packet.lo `test -f 'packet.c' || echo '$(srcdir)/'`packet.c
+
+libGateway_la-route.lo: route.c
+	$(AM_V_CC)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libGateway_la_CFLAGS) $(CFLAGS) -MT libGateway_la-route.lo -MD -MP -MF $(DEPDIR)/libGateway_la-route.Tpo -c -o libGateway_la-route.lo `test -f 'route.c' || echo '$(srcdir)/'`route.c
+	$(AM_V_at)$(am__mv) $(DEPDIR)/libGateway_la-route.Tpo $(DEPDIR)/libGateway_la-route.Plo
+#	$(AM_V_CC)source='route.c' object='libGateway_la-route.lo' libtool=yes \
+#	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) \
+#	$(AM_V_CC_no)$(LIBTOOL) $(AM_V_lt) --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) $(CPPFLAGS) $(libGateway_la_CFLAGS) $(CFLAGS) -c -o libGateway_la-route.lo `test -f 'route.c' || echo '$(srcdir)/'`route.c
 
 mostlyclean-libtool:
 	-rm -f *.lo

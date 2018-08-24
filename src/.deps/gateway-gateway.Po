@@ -95,7 +95,8 @@ gateway-gateway.o: gateway.c ../lib/gateway/gateway.h \
   /usr/include/i386/_param.h /usr/include/net/net_kev.h \
   /usr/include/sys/_types/_sa_family_t.h \
   /usr/include/sys/_types/_socklen_t.h \
-  /usr/include/sys/_types/_iovec_t.h /usr/include/netinet6/in6.h
+  /usr/include/sys/_types/_iovec_t.h /usr/include/netinet6/in6.h \
+  ../lib/gateway/model.h /usr/include/time.h
 
 ../lib/gateway/gateway.h:
 
@@ -408,3 +409,7 @@ gateway-gateway.o: gateway.c ../lib/gateway/gateway.h \
 /usr/include/sys/_types/_iovec_t.h:
 
 /usr/include/netinet6/in6.h:
+
+../lib/gateway/model.h:
+
+/usr/include/time.h:

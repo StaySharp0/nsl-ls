@@ -49,8 +49,10 @@ void fn_run(SELF* self) {
     int init_status = TRUE;
     self->config = (CONFIG*) malloc (sizeof(CONFIG));
 
+    // OR opration bcz TRUE(1), FALSE(-1) 
     init_status = init_config_sensor_list(self->config);
     init_status |= init_config_server(self->config);
+    init_status |= init_storage(self);
 
     if(init_status == TRUE) {
         write(self->fd[1], pipe_msg[WORKER_RUN], BUFSIZ);
