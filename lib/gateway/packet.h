@@ -7,7 +7,6 @@
  */
 
 #include <stdint.h>     // uint
-#include <string.h>     // memcpy
 #include <arpa/inet.h>  // ntohl
 
 // Network header address
